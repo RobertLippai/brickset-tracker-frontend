@@ -1,29 +1,43 @@
-# .\brickset-tracker-frontend\
+# Brickset Tracker - Vue Frontend
 
-This template should help get you started developing with Vue 3 in Vite.
+This is the Vue 3 frontend for my BricksetTracker project. It connects to the [Brickset Tracker - Spring Boot API](https://github.com/RobertLippai/brickset-tracker-api), letting users search for and keep track of their LEGO sets.
 
-## Recommended IDE Setup
+## Tech Stack
+* Vue 3
+* Vite
+* JavaScript
+* CSS
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
+## Roadmap
+- [ ] **User Authentication:** Secure registration and login functionality using JWT.
+- [ ] **Public Data Views:** Display all sets, brands, and tags for visitors.
+- [ ] **User Inventory Management:** Allow logged-in users to add or remove sets from their personal collection.
+- [ ] **Admin Panels:** (Future) Provide UI for users with `EDITOR` or `ADMIN` roles to manage Sets, Brands, Tags and Comments.
 
 ## Project Setup
 
-```sh
-npm install
-```
+### Prerequisites
 
-### Compile and Hot-Reload for Development
+- Node.js (v18 or newer)
+- npm
 
-```sh
-npm run dev
-```
+### Installation and Development
+1.  Clone the repository:
+    ```sh
+    git clone https://github.com/RobertLippai/brickset-tracker-frontend.git
+    ```
 
-### Compile and Minify for Production
+2.  Navigate into the project directory:
+    ```sh
+    cd brickset-tracker-frontend
+    ```
 
-```sh
-npm run build
-```
+3.  Install the dependencies:
+    ```sh
+    npm install
+    ```
+
+4.  Compile and run the hot-reloading dev server:
+    ```sh
+    npm run dev
+    ```
