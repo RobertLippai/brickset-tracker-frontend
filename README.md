@@ -7,8 +7,10 @@ This is the Vue 3 frontend for my BricksetTracker project. It connects to the [B
 * Vue Router
 * Vite
 * JavaScript
+* Axios
 * Tailwind CSS
 * Font Awesome
+* Vue3 Spinner
 
 ## Roadmap
 - [ ] **User Authentication:** Secure registration and login functionality using JWT.
