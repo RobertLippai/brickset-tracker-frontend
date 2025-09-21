@@ -28,11 +28,11 @@ export const placeholderSets = [
     },
     {
         sid: 104,
-        setId: '21330',
-        name: 'Home Alone (Example)',
-        pieces: 3955,
-        releaseYear: 2021,
-        imageUrl: 'https://cdn.rebrickable.com/media/sets/21330-1.jpg',
+        setId: '10270',
+        name: 'Bookshop (Example)',
+        pieces: 2504,
+        releaseYear: 2020,
+        imageUrl: 'https://cdn.rebrickable.com/media/sets/10270-1.jpg',
         brandName: 'LEGO',
     },
     {

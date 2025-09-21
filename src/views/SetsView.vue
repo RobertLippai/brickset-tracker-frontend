@@ -1,9 +1,7 @@
 <script setup>
-import SetCard from '@/components/SetCard.vue';
+import SetList from '@/components/SetList.vue';
 import { ref, onMounted } from 'vue';
 import { placeholderSets } from '@/placeholder-data.js';
-import { VueSpinnerSync } from "vue3-spinners"
-
 import axios from 'axios';
 
 const sets = ref([]);
@@ -26,14 +24,9 @@ onMounted(async () => {
   <div class="container mx-auto max-w-7xl px-4 py-8">
     <h1 class="text-4xl font-bold text-gray-800 mb-10">Explore Sets</h1>
 
-    <!-- Loading message -->
-    <div v-if="isLoading" class="text-center py-10">
-      <VueSpinnerSync class="mb-5" color="#008236" /> <!-- same as green-700 -->
-      <p class="text-lg text-gray-600">Loading sets...</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+    <SetList :sets="sets" :is-loading="isLoading" />
     </div>
 
-    <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-      <SetCard v-for="set in sets" :key="set.sid" :set="set" />
-    </div>
   </div>
 </template>
