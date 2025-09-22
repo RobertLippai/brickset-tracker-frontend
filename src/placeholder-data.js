@@ -31,8 +31,11 @@ export const placeholderSets = [
         setId: '10270',
         name: 'Bookshop (Example)',
         pieces: 2504,
+        minifiguresCount: 5,
         releaseYear: 2020,
         imageUrl: 'https://cdn.rebrickable.com/media/sets/10270-1.jpg',
+        instructionUrl: 'https://www.lego.com/en-us/service/building-instructions/10270',
+        description: 'Like the best books, this set has unexpected details, from a colorful pet chameleon to a birch tree with a toy plane stuck in its branches. Created with a modular design that lets you build, unbuild and reconfigure the two buildings in any number of ways, this collectible all-new Bookshop and townhouse join a neighborhood of highly-detailed LEGO Creator Expert sets you can mix, match and make your own.',
         brandName: 'LEGO',
     },
     {

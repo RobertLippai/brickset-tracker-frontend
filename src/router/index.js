@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "@/views/HomeView.vue";
 import NotFoundView from "@/views/NotFoundView.vue";
 import SetsView from "@/views/SetsView.vue";
+import SetDetailView from "@/views/SetDetailView.vue";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL), // for back button
@@ -17,9 +18,18 @@ const router = createRouter({
             component: SetsView
         },
         {
-            path: '/:catchAll(.*)', // any resource that doesn't exist
+            path: '/sets/:sid',
+            name: 'set-detail',
+            component: SetDetailView
+        },
+        {
+            path: '/not-found',
             name: 'not-found',
             component: NotFoundView
+        },
+        {
+            path: '/:catchAll(.*)', // any resource that doesn't exist
+            redirect: '/not-found'
         }
     ]
 })

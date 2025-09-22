@@ -2,9 +2,6 @@
 
 This is the Vue 3 frontend for my BricksetTracker project. It connects to the [Brickset Tracker - Spring Boot API](https://github.com/RobertLippai/brickset-tracker-api), letting users search for and keep track of their brick sets.
 
-![Brickset Tracker Homepage](./public/screenshot.png)
-![Brickset Tracker Explore Sets Page](./public/screenshot_2.png)
-
 ## Features
 * **Dynamic Set Catalog:** Fetches and displays brick sets from the backend API.
 * **Responsive Design:** Works on both desktop and mobile, featuring a collapsible hamburger menu.
@@ -19,10 +16,20 @@ This is the Vue 3 frontend for my BricksetTracker project. It connects to the [B
 * Tailwind CSS
 * Font Awesome
 
+## Screenshots
+<details>
+<summary>Click to view screenshots</summary>
+
+![Brickset Tracker Homepage](./public/screenshot.png)
+![Brickset Tracker Explore Sets Page](./public/screenshot_2.png)
+![Brickset Tracker Set Details Page](./public/screenshot_3.png)
+
+</details>
+
 ## Roadmap
 - [x] **Layout Foundation:** Create a responsive main layout with a navigation bar and footer.
 - [x] **Explore Sets Page:** Display all sets from the API in a responsive grid.
-- [ ] **Set Detail Page:** Display detailed information about a set.
+- [X] **Set Detail Page:** Display detailed information about a set.
 - [ ] **Explore Brands Page:** Display all brands from the API in a responsive grid.
 - [ ] **User Authentication:** Secure registration and login functionality.
 - [ ] **User Inventory Management:** Allow logged-in users to add or remove sets from their personal collection.
@@ -55,3 +62,6 @@ This is the Vue 3 frontend for my BricksetTracker project. It connects to the [B
     ```sh
     npm run dev
     ```
+
+## Disclaimer
+> This project was created to showcase my work. The LEGO® sets and other brand assets (Lumibricks, Pantasy, etc.) shown are used for illustrative and demonstration purposes only. All trademarks and copyrights are the property of their respective owners. No copyright infringement is intended.

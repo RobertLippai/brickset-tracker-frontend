@@ -25,7 +25,7 @@ onMounted(async () => {
     <h1 class="text-4xl font-bold text-gray-800 mb-10">Explore Sets</h1>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-    <SetList :sets="sets" :is-loading="isLoading" />
+      <SetList :sets="sets" :is-loading="isLoading" />
     </div>
 
   </div>
