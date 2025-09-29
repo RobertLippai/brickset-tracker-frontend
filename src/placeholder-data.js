@@ -66,3 +66,26 @@ export const placeholderSets = [
         brandName: 'LumiBricks',
     }
 ];
+
+export const placeholderBrands = [
+    {
+        bid: 1,
+        name: 'LEGO',
+        description: 'A Danish construction toy production company.'
+    },
+    {
+        bid: 2,
+        name: 'Lumibricks',
+        description: 'The world\'s first brand of light bricks.'
+    },
+    {
+        bid: 3,
+        name: 'Pantasy',
+        description: 'Focuses on collection-level building blocks.'
+    },
+    {
+        bid: 4,
+        name: 'Mould King',
+        description: 'Specializes in large, complex models and remote-controlled vehicles.'
+    }
+];

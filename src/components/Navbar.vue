@@ -41,6 +41,12 @@ const isLinkActive = (path) => {
             :class="[isLinkActive('/sets') ? 'text-gray-900 bg-gray-200' : 'text-gray-700 hover:bg-gray-200']">
           All Sets
         </RouterLink>
+        <RouterLink
+            to="/brands"
+            class="px-3 py-2 rounded-md text-sm font-medium"
+            :class="[isLinkActive('/brands') ? 'text-gray-900 bg-gray-200' : 'text-gray-700 hover:bg-gray-200']">
+          All Brands
+        </RouterLink>
       </div>
 
       <!-- Mobile menu -->
@@ -69,6 +75,13 @@ const isLinkActive = (path) => {
             class="block px-3 py-2 rounded-md text-base font-medium"
             :class="[isLinkActive('/sets') ? 'text-gray-900 bg-gray-200' : 'text-gray-700 hover:text-gray-900 hover:bg-gray-200']">
           All Sets
+        </RouterLink>
+        <RouterLink
+            to="/brands"
+            @click="toggleMobileMenu"
+            class="block px-3 py-2 rounded-md text-base font-medium"
+            :class="[isLinkActive('/brands') ? 'text-gray-900 bg-gray-200' : 'text-gray-700 hover:text-gray-900 hover:bg-gray-200']">
+          All Brands
         </RouterLink>
       </div>
     </div>

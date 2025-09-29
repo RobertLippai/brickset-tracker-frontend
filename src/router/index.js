@@ -3,6 +3,7 @@ import HomeView from "@/views/HomeView.vue";
 import NotFoundView from "@/views/NotFoundView.vue";
 import SetsView from "@/views/SetsView.vue";
 import SetDetailView from "@/views/SetDetailView.vue";
+import BrandsView from "@/views/BrandsView.vue";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL), // for back button
@@ -21,6 +22,11 @@ const router = createRouter({
             path: '/sets/:sid',
             name: 'set-detail',
             component: SetDetailView
+        },
+        {
+            path: '/brands',
+            name: 'brands',
+            component: BrandsView
         },
         {
             path: '/not-found',

@@ -30,7 +30,7 @@ This is the Vue 3 frontend for my BricksetTracker project. It connects to the [B
 - [x] **Layout Foundation:** Create a responsive main layout with a navigation bar and footer.
 - [x] **Explore Sets Page:** Display all sets from the API in a responsive grid.
 - [X] **Set Detail Page:** Display detailed information about a set.
-- [ ] **Explore Brands Page:** Display all brands from the API in a responsive grid.
+- [X] **Explore Brands Page:** Display all brands from the API in a responsive grid.
 - [ ] **User Authentication:** Secure registration and login functionality.
 - [ ] **User Inventory Management:** Allow logged-in users to add or remove sets from their personal collection.
 - [ ] **Admin Panels:** (Future) Provide UI for users with `EDITOR` or `ADMIN` roles to manage Sets, Brands, Tags and Comments.
@@ -65,3 +65,7 @@ This is the Vue 3 frontend for my BricksetTracker project. It connects to the [B
 
 ## Disclaimer
 > This project was created to showcase my work. The LEGO® sets and other brand assets (Lumibricks, Pantasy, etc.) shown are used for illustrative and demonstration purposes only. All trademarks and copyrights are the property of their respective owners. No copyright infringement is intended.
+
+## Credits
+- Mourizal Zativa -- bricks_1.jpeg: [Link](https://unsplash.com/photos/blue-red-and-yellow-lego-blocks-OSvN1fBcXYE)
+- Xavi Cabrera -- bricks_2.jpeg: [Link](https://unsplash.com/photos/yellow-red-blue-and-green-lego-blocks-kn-UmDZQDjM)
