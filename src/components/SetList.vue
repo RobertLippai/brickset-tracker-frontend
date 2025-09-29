@@ -23,5 +23,10 @@ defineProps({
       <p class="text-lg text-gray-600">Loading sets...</p>
     </div>
 
-  <SetCard v-else v-for="set in sets.slice(0, limit || sets.length)" :key="set.sid" :set="set" />
+    <div v-else-if="!isLoading && sets.length === 0" class="text-center py-10 col-span-full">
+      <i class="fas fa-search-minus text-gray-400 text-6xl mb-4"></i>
+      <p class="text-xl text-gray-600">No sets found for this brand.</p>
+    </div>
+
+    <SetCard v-else v-for="set in sets.slice(0, limit || sets.length)" :key="set.sid" :set="set" />
 </template>
