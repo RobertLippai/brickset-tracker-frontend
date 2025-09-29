@@ -4,6 +4,7 @@ import { useRoute, useRouter, RouterLink } from 'vue-router';
 import axios from 'axios';
 import { VueSpinnerSync } from "vue3-spinners";
 import { placeholderSets } from '../placeholder-data.js';
+import { lastSetsPath } from "@/navigationStore.js";
 
 const set = ref(null);
 const isLoading = ref(true);
@@ -37,7 +38,7 @@ onMounted(async () => {
 <template>
   <div class="container mx-auto max-w-6xl p-4 md:p-8">
     <!-- Go Back Button -->
-    <RouterLink to="/sets" class="text-green-700 hover:text-green-900 mb-8 inline-block">
+    <RouterLink :to="lastSetsPath" class="text-green-700 hover:text-green-900 mb-8 inline-block">
       &larr; Back to All Sets
     </RouterLink>
 

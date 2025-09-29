@@ -4,8 +4,10 @@ This is the Vue 3 frontend for my BricksetTracker project. It connects to the [B
 
 ## Features
 * **Dynamic Set Catalog:** Fetches and displays brick sets from the backend API.
+* **Interactive Filtering:** Users can filter the set catalog by brand in real-time. The UI reactively updates based on URL query parameters.
+* **Robust Data Fetching & Error Handling:** Uses `axios` for API calls, includes loading states, and gracefully falls back to placeholder data if the API is unavailable.
 * **Responsive Design:** Works on both desktop and mobile, featuring a collapsible hamburger menu.
-* **Component-Based Architecture:** Reusable components for the Navbar, Footer, Hero Section, Set List and Set Cards.
+* **Component-Based Architecture:** Reusable components for the Navbar, Footer, Hero Section, Set List and cards.
 
 ## Tech Stack
 * Vue 3
@@ -28,9 +30,9 @@ This is the Vue 3 frontend for my BricksetTracker project. It connects to the [B
 
 ## Roadmap
 - [x] **Layout Foundation:** Create a responsive main layout with a navigation bar and footer.
-- [x] **Explore Sets Page:** Display all sets from the API in a responsive grid.
-- [X] **Set Detail Page:** Display detailed information about a set.
-- [X] **Explore Brands Page:** Display all brands from the API in a responsive grid.
+- [x] **Explore Sets Page:** Display all sets from the API in a responsive grid with brand filtering.
+- [x] **Set Detail Page:** Display detailed information about a set.
+- [x] **Explore Brands Page:** Display all brands from the API in a responsive grid.
 - [ ] **User Authentication:** Secure registration and login functionality.
 - [ ] **User Inventory Management:** Allow logged-in users to add or remove sets from their personal collection.
 - [ ] **Admin Panels:** (Future) Provide UI for users with `EDITOR` or `ADMIN` roles to manage Sets, Brands, Tags and Comments.
