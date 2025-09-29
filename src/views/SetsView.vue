@@ -1,19 +1,34 @@
 <script setup>
 import SetList from '@/components/SetList.vue';
-import { ref, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
+import { ref, watchEffect } from 'vue';
 import { placeholderSets } from '@/placeholder-data.js';
 import axios from 'axios';
 
 const sets = ref([]);
 const isLoading = ref(true);
+const route = useRoute();
 
-onMounted(async () => {
+watchEffect(async () => {
+  const brandName = route.query.brand;
+
+  let apiUrl = '/api/sets';
+  if (brandName) {
+    apiUrl += `?brandName=${brandName}`;
+  }
+
   try {
-    const response = await axios.get('/api/sets');
+    const response = await axios.get(apiUrl);
     sets.value = response.data;
   } catch (error) {
     console.warn('API fetch failed. Falling back to placeholder data.', error);
-    sets.value = placeholderSets;
+    if (brandName) {
+      sets.value = placeholderSets.filter(
+          (set) => set.brandName.toLowerCase() === brandName.toLowerCase()
+      );
+    } else {
+      sets.value = placeholderSets;
+    }
   } finally {
     isLoading.value = false;
   }
