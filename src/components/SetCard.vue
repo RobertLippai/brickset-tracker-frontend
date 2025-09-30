@@ -11,7 +11,7 @@ defineProps({
   <div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl">
 
     <!-- Image -->
-    <RouterLink :to="`/sets/${set.setId}`">
+    <RouterLink :to="`/sets/${set.sid}`">
       <img
           :src="set.imageUrl"
           :alt="set.name"
