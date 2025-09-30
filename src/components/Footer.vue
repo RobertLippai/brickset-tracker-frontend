@@ -27,7 +27,18 @@
           LinkedIn
         </a>
         </span>
+      </div>
 
+      <div class="mt-4 text-xs text-gray-500">
+        <p>
+          This is a personal portfolio project. All trademarks are the property of their respective owners.
+          <a
+              href="https://github.com/RobertLippai/brickset-tracker-frontend"
+              target="_blank"
+              class="underline hover:text-gray-700">
+            Learn More
+          </a>.
+        </p>
       </div>
     </div>
   </footer>
