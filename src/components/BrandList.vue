@@ -22,7 +22,7 @@ defineProps({
 
 <template>
   <!-- Loading message -->
-  <div v-if="isLoading" class="text-center py-10">
+  <div v-if="isLoading" class="text-center py-10 col-span-full">
     <VueSpinnerSync class="mb-5" color="#008236" /> <!-- same as green-700 -->
     <p class="text-lg text-gray-600">Loading brands...</p>
   </div>
