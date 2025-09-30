@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://brickset-tracker-spring-api.fly.dev/api/:path*"
+    }
+  ]
+}

@@ -1,6 +1,15 @@
 # Brickset Tracker - Vue Frontend
 
+![Vercel Deploy](https://deploy-badge.vercel.app/vercel/brickset-tracker)
+
 This is the Vue 3 frontend for my BricksetTracker project. It connects to the [Brickset Tracker - Spring Boot API](https://github.com/RobertLippai/brickset-tracker-api), letting users search for and keep track of their brick sets.
+
+## Live Demo
+
+**You can try the live application here:**
+**[https://brickset-tracker.vercel.app/](https://brickset-tracker.vercel.app/)**
+
+_(Please note: The backend API is hosted on a free-tier service and may take 15-30 seconds to "wake up" on the first visit.)_
 
 ## Features
 * **Dynamic Set Catalog:** Fetches and displays brick sets from the backend API.
@@ -8,6 +17,7 @@ This is the Vue 3 frontend for my BricksetTracker project. It connects to the [B
 * **Robust Data Fetching & Error Handling:** Uses `axios` for API calls, includes loading states, and gracefully falls back to placeholder data if the API is unavailable.
 * **Responsive Design:** Works on both desktop and mobile, featuring a collapsible hamburger menu.
 * **Component-Based Architecture:** Reusable components for the Navbar, Footer, Hero Section, Set List and cards.
+* **Deployment:** Continuous Deployment with **Vercel**. Every push automatically triggers a new production build and deployment. Vercel's rewrite feature is used to proxy backend API calls.
 
 ## Tech Stack
 * Vue 3
