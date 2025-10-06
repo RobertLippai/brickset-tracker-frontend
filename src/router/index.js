@@ -4,6 +4,8 @@ import NotFoundView from "@/views/NotFoundView.vue";
 import SetsView from "@/views/SetsView.vue";
 import SetDetailView from "@/views/SetDetailView.vue";
 import BrandsView from "@/views/BrandsView.vue";
+import LoginView from "@/views/LoginView.vue";
+import RegisterView from "@/views/RegisterView.vue";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL), // for back button
@@ -27,6 +29,16 @@ const router = createRouter({
             path: '/brands',
             name: 'brands',
             component: BrandsView
+        },
+        {
+            path: '/login',
+            name: 'login',
+            component: LoginView
+        },
+        {
+            path: '/register',
+            name: 'register',
+            component: RegisterView
         },
         {
             path: '/not-found',
