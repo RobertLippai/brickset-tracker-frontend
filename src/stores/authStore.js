@@ -8,6 +8,12 @@ export const useAuthStore = defineStore('authStore', {
         token: localStorage.getItem('token') || null,
     }),
 
+    getters: {
+        isAuthenticated(){
+            return !!this.token;
+        }
+    },
+
     actions: {
         async login(username, password) {
             try {

@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
+import { useAuthStore } from "@/stores/authStore.js";
 
 const isMobileMenuOpen = ref(false);
 
@@ -9,6 +10,8 @@ const toggleMobileMenu = () => {
 };
 
 const route = useRoute();
+const router = useRouter();
+const authStore = useAuthStore();
 
 const isLinkActive = (path) => {
   return route.path === path;
@@ -47,6 +50,32 @@ const isLinkActive = (path) => {
             :class="[isLinkActive('/brands') ? 'text-gray-900 bg-gray-200' : 'text-gray-700 hover:bg-gray-200']">
           All Brands
         </RouterLink>
+
+        <RouterLink
+            hidden="hidden"
+            v-if="authStore.isAuthenticated"
+            to="/inventory"
+            class="px-3 py-2 rounded-md text-sm font-medium"
+            :class="[isLinkActive('/inventory') ? 'text-gray-900 bg-gray-200' : 'text-gray-700 hover:bg-gray-200']">
+          Inventory
+        </RouterLink>
+
+        <div v-if="authStore.isAuthenticated">
+          <button
+              @click="authStore.logout()"
+              class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-200">
+            Logout
+          </button>
+        </div>
+        <div v-else>
+          <RouterLink
+              to="/login"
+              class="px-3 py-2 rounded-md text-sm font-medium"
+              :class="[isLinkActive('/login') ? 'text-gray-900 bg-gray-200' : 'text-gray-700 hover:bg-gray-200']">
+            Account
+          </RouterLink>
+        </div>
+
       </div>
 
       <!-- Mobile menu -->
