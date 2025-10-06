@@ -1,5 +1,10 @@
 <script setup>
 import { ref } from 'vue';
+import { useRouter } from "vue-router";
+import { useAuthStore } from "@/stores/authStore.js";
+
+const router = useRouter();
+const authStore = useAuthStore();
 
 const username = ref('');
 const password = ref('');
@@ -7,6 +12,12 @@ const error = ref(null);
 
 const handleSubmit = async () => {
   error.value = null;
+  try {
+    await authStore.login(username.value, password.value);
+    await router.push('/');
+  } catch (err) {
+    error.value = 'Please enter a correct username and password.';
+  }
 };
 </script>
 

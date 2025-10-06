@@ -22,6 +22,7 @@ _(Please note: The backend API is hosted on a free-tier service and may take 15-
 ## Tech Stack
 * Vue 3
 * Vue Router
+* Pinia
 * Vite
 * JavaScript
 * Axios
