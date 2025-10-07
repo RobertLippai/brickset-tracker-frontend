@@ -41,6 +41,22 @@ export const useAuthStore = defineStore('authStore', {
             localStorage.removeItem('user');
         },
 
-        // TODO Register
+        async register(username, password) {
+            try {
+                const response = await axios.post('/api/auth/register', { username, password} );
+                const token = response.data.token;
+
+                const userData = jwtDecode(token);
+
+                this.token = token;
+                this.user = userData;
+
+                localStorage.setItem('token', token);
+                localStorage.setItem('user', JSON.stringify(userData));
+            } catch (error) {
+                console.error('Register failed:', error);
+                throw error;
+            }
+        }
     },
 });

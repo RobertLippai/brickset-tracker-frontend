@@ -1,6 +1,10 @@
 <script setup>
 import { ref } from 'vue';
-import { RouterLink } from 'vue-router';
+import { RouterLink, useRouter } from 'vue-router';
+import { useAuthStore } from "@/stores/authStore.js";
+
+const router = useRouter();
+const authStore = useAuthStore();
 
 const username = ref('');
 const password = ref('');
@@ -10,6 +14,18 @@ const error = ref(null);
 
 const handleSubmit = async () => {
   error.value = null;
+
+  if (password.value !== password2.value) {
+    error.value = 'Passwords do not match.';
+    return;
+  }
+
+  try {
+    await authStore.register(username.value, password.value);
+    await router.push('/');
+  } catch (err) {
+    error.value = err.response?.data?.message || 'Registration failed. Please try again.';
+  }
 };
 </script>
 

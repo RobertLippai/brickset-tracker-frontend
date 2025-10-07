@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-import { useRouter } from "vue-router";
+import { RouterLink, useRouter } from "vue-router";
 import { useAuthStore } from "@/stores/authStore.js";
 
 const router = useRouter();
@@ -8,6 +8,7 @@ const authStore = useAuthStore();
 
 const username = ref('');
 const password = ref('');
+
 const error = ref(null);
 
 const handleSubmit = async () => {
@@ -44,6 +45,13 @@ const handleSubmit = async () => {
       </button>
 
     </form>
+
+    <p class="text-center mt-6 text-gray-600">
+      Don't have an account?
+      <RouterLink to="/register" class="text-green-700 font-semibold hover:underline">
+        Register here
+      </RouterLink>
+    </p>
 
   </div>
 </template>
