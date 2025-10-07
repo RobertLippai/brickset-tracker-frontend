@@ -11,6 +11,16 @@ export const useAuthStore = defineStore('authStore', {
     getters: {
         isAuthenticated(){
             return !!this.token;
+        },
+        username() {
+            if (this.user && this.user.sub) {
+                const username = this.user.sub;
+                return username.charAt(0).toUpperCase() + username.slice(1);
+            }
+            return null;
+        },
+        roles() {
+            return this.user?.roles || [];
         }
     },
 

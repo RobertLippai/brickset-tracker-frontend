@@ -72,7 +72,7 @@ const isLinkActive = (path) => {
               to="/login"
               class="px-3 py-2 rounded-md text-sm font-medium"
               :class="[isLinkActive('/login') ? 'text-gray-900 bg-gray-200' : 'text-gray-700 hover:bg-gray-200']">
-            Account
+            Login
           </RouterLink>
         </div>
 
