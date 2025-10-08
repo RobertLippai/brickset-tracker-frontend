@@ -4,7 +4,7 @@ import SetList from '@/components/SetList.vue';
 import BrandList from "@/components/BrandList.vue";
 
 import { ref, onMounted } from 'vue';
-import axios from 'axios';
+import apiClient from '@/api.js'
 import { placeholderSets, placeholderBrands } from '@/placeholder-data.js';
 
 
@@ -17,8 +17,8 @@ onMounted(async () => {
 
   try {
     const [setsResponse, brandsResponse] = await Promise.all([
-      axios.get('/api/sets'),
-      axios.get('/api/brands')
+      apiClient.get('/api/sets'),
+      apiClient.get('/api/brands')
     ]);
 
     const allSets = setsResponse.data;

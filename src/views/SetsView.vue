@@ -3,7 +3,7 @@ import SetList from '@/components/SetList.vue';
 import { useRoute, RouterLink } from 'vue-router';
 import { ref, watchEffect } from 'vue';
 import { placeholderBrands, placeholderSets } from '@/placeholder-data.js';
-import axios from 'axios';
+import apiClient from '@/api.js'
 import { lastSetsPath } from "@/navigationStore.js";
 
 const sets = ref([]);
@@ -23,8 +23,8 @@ watchEffect(async () => {
 
   try {
     const [setsResponse, brandsResponse] = await Promise.all([
-      axios.get(apiUrl),
-      axios.get('/api/brands')
+      apiClient.get(apiUrl),
+      apiClient.get('/api/brands')
     ]);
 
     sets.value = setsResponse.data;

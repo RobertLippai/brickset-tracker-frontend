@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { useRoute, useRouter, RouterLink } from 'vue-router';
-import axios from 'axios';
+import apiClient from '@/api.js'
 import { VueSpinnerSync } from "vue3-spinners";
 import { placeholderSets } from '../placeholder-data.js';
 import { lastSetsPath } from "@/navigationStore.js";
@@ -16,7 +16,7 @@ const sid = route.params.sid;
 
 onMounted(async () => {
   try {
-    const response = await axios.get(`/api/sets/${sid}`);
+    const response = await apiClient.get(`/api/sets/${sid}`);
     set.value = response.data;
   } catch (err) {
     console.warn(`API fetch for set ${sid} failed. Searching in placeholder data.`, err);

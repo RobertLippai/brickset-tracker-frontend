@@ -2,14 +2,14 @@
 import BrandList from '@/components/BrandList.vue';
 import { ref, onMounted } from 'vue';
 import { placeholderBrands } from "@/placeholder-data.js";
-import axios from 'axios';
+import apiClient from '@/api.js'
 
 const brands = ref([]);
 const isLoading = ref(true);
 
 onMounted(async () => {
   try {
-    const response = await axios.get('/api/brands');
+    const response = await apiClient.get('/api/brands');
     brands.value = response.data;
   } catch (error) {
     console.warn('API fetch failed. Falling back to placeholder data.', error);
