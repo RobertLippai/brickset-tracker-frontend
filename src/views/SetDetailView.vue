@@ -37,6 +37,7 @@ onMounted(async () => {
 
 <template>
   <div class="container mx-auto max-w-6xl p-4 md:p-8">
+    <!-- TODO When access form the inventory page, it goes back to all sets page instead of inv. -->
     <!-- Go Back Button -->
     <RouterLink :to="lastSetsPath" class="text-green-700 hover:text-green-900 mb-8 inline-block">
       &larr; Back to All Sets

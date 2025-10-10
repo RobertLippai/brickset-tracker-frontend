@@ -12,8 +12,14 @@ defineProps({
   isLoading: {
     type: Boolean,
     required: true
+  },
+  context: {
+    type: String,
+    default: 'browse'
   }
 });
+
+const emit = defineEmits(['remove-set']);
 </script>
 
 <template>
@@ -28,5 +34,11 @@ defineProps({
       <p class="text-xl text-gray-600">No sets found for this brand.</p>
     </div>
 
-    <SetCard v-else v-for="set in sets.slice(0, limit || sets.length)" :key="set.sid" :set="set" />
+    <SetCard
+        v-else
+        v-for="set in sets.slice(0, limit || sets.length)"
+        :key="set.sid"
+        :set="set"
+        :context="context"
+        @remove-set="(setId) => emit('remove-set', setId)" />
 </template>

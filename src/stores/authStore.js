@@ -28,6 +28,7 @@ export const useAuthStore = defineStore('authStore', {
         async login(username, password) {
             try {
                 const response = await axios.post('/api/auth/login', { username, password} );
+                // TODO if the token expires redirect to login
                 const token = response.data.token;
 
                 const userData = jwtDecode(token);

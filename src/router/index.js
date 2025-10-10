@@ -6,6 +6,7 @@ import SetDetailView from "@/views/SetDetailView.vue";
 import BrandsView from "@/views/BrandsView.vue";
 import LoginView from "@/views/LoginView.vue";
 import RegisterView from "@/views/RegisterView.vue";
+import InventoryView from "@/views/InventoryView.vue";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL), // for back button
@@ -39,6 +40,12 @@ const router = createRouter({
             path: '/register',
             name: 'register',
             component: RegisterView
+        },
+        {
+            path: '/inventory',
+            name: 'inventory',
+            component: InventoryView
+            // TODO redirect form endpoint when not authenticated
         },
         {
             path: '/not-found',

@@ -4,7 +4,13 @@ defineProps({
     type: Object,
     required: true,
   },
+  context: {
+    type: String,
+    default: 'browse', // 'browse' or 'inventory'
+  }
 });
+
+const emit = defineEmits(['remove-set']);
 </script>
 
 <template>
@@ -29,10 +35,16 @@ defineProps({
       </div>
 
       <!-- Buttons -->
-      <div class="bg-gray-50 border-t-gray-400 border-t p-3 mt-4 flex justify-center">
+      <div class="bg-gray-50 border-t-gray-400 border-t p-3 mt-4 flex justify-center gap-3">
         <RouterLink :to="`/sets/${set.sid}`" class="rounded-md bg-green-700 px-4 py-2 text-sm font-bold text-white shadow-sm hover:bg-green-800">
           View
         </RouterLink>
+        <button
+            v-if="context === 'inventory'"
+            @click="emit('remove-set', set.sid)"
+            class="rounded-md bg-red-600 px-4 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-red-700 cursor-pointer">
+          Remove
+        </button>
       </div>
     </div>
 
