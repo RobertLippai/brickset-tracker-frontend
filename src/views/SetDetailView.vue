@@ -84,7 +84,6 @@ onMounted(async () => {
           <a v-if="set.instructionUrl" :href="set.instructionUrl" target="_blank" class="rounded-md bg-green-700 px-4 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-green-800">
             View Instruction Manual
           </a>
-          <!-- TODO Implement add to inventory button -->
         </div>
       </div>
     </div>

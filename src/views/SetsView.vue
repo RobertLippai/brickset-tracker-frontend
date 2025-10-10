@@ -50,6 +50,7 @@ watchEffect(async () => {
 const handleAddSetToInventory = async (setId) => {
   try {
     await apiClient.post(`/api/me/sets`, { brickSetId: setId }, { requiresAuth: true });
+    // TODO change alerts to pop up notification
     alert(`Set added to your inventory!`);
   } catch (error) {
     console.error('Failed to add set:', error);
@@ -84,7 +85,9 @@ const handleAddSetToInventory = async (setId) => {
           :sets="sets"
           :is-loading="isLoading"
           :is-authenticated="authStore.isAuthenticated"
-          @add-to-inventory="handleAddSetToInventory"/>
+          @add-to-inventory="handleAddSetToInventory"
+          empty-array-message="No sets found for this brand."/>
+          <!-- TODO make the error msg a computed property -->
     </div>
 
   </div>

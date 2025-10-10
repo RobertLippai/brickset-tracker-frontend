@@ -47,7 +47,8 @@ onMounted(fetchInventory);
           :is-loading="isLoading"
           context="inventory"
           :is-authenticated="authStore.isAuthenticated"
-          @remove-set="handleRemoveSet"/>
+          @remove-set="handleRemoveSet"
+          empty-array-message="Your inventory is empty. Start by adding some sets!"/>
     </div>
   </div>
 </template>

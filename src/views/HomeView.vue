@@ -67,7 +67,8 @@ const handleAddSetToInventory = async (setId) => {
           :is-loading="isLoading"
           :is-authenticated="authStore.isAuthenticated"
           :limit="3"
-          @add-to-inventory="handleAddSetToInventory"/>
+          @add-to-inventory="handleAddSetToInventory"
+          empty-array-message="There are currently no sets to display."/>
     </div>
   </div>
 

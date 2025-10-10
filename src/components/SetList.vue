@@ -17,6 +17,10 @@ defineProps({
     type: String,
     default: 'browse'
   },
+  emptyArrayMessage: {
+    type: String,
+    default: 'No items found.'
+  },
   isAuthenticated: {
     type: Boolean,
     default: false
@@ -35,7 +39,7 @@ const emit = defineEmits(['remove-set', 'add-to-inventory']);
 
     <div v-else-if="!isLoading && sets.length === 0" class="text-center py-10 col-span-full">
       <i class="fas fa-search-minus text-gray-400 text-6xl mb-4"></i>
-      <p class="text-xl text-gray-600">No sets found for this brand.</p>
+      <p class="text-xl text-gray-600">{{ emptyArrayMessage }}</p>
     </div>
 
     <SetCard
