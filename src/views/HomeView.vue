@@ -6,11 +6,13 @@ import BrandList from "@/components/BrandList.vue";
 import { ref, onMounted } from 'vue';
 import apiClient from '@/api.js'
 import { placeholderSets, placeholderBrands } from '@/placeholder-data.js';
+import { useAuthStore } from "@/stores/authStore.js";
 
 
 const featuredSets = ref([]);
 const featuredBrands = ref([]);
 const isLoading = ref(true);
+const authStore = useAuthStore();
 
 onMounted(async () => {
   isLoading.value = true;
@@ -34,6 +36,16 @@ onMounted(async () => {
     isLoading.value = false;
   }
 });
+
+const handleAddSetToInventory = async (setId) => {
+  try {
+    await apiClient.post(`/api/me/sets`, { brickSetId: setId }, { requiresAuth: true });
+    alert(`Set added to your inventory!`);
+  } catch (error) {
+    console.error('Failed to add set:', error);
+    alert('Could not add set to inventory. Please try again.');
+  }
+};
 </script>
 
 <template>
@@ -50,7 +62,12 @@ onMounted(async () => {
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <SetList :sets="featuredSets" :is-loading="isLoading" :limit="3"/>
+      <SetList
+          :sets="featuredSets"
+          :is-loading="isLoading"
+          :is-authenticated="authStore.isAuthenticated"
+          :limit="3"
+          @add-to-inventory="handleAddSetToInventory"/>
     </div>
   </div>
 

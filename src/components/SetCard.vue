@@ -7,10 +7,14 @@ defineProps({
   context: {
     type: String,
     default: 'browse', // 'browse' or 'inventory'
+  },
+  isAuthenticated: {
+    type: Boolean,
+    default: false
   }
 });
 
-const emit = defineEmits(['remove-set']);
+const emit = defineEmits(['remove-set', 'add-to-inventory']);
 </script>
 
 <template>
@@ -40,10 +44,17 @@ const emit = defineEmits(['remove-set']);
           View
         </RouterLink>
         <button
-            v-if="context === 'inventory'"
+            v-if="context === 'inventory' && isAuthenticated"
             @click="emit('remove-set', set.sid)"
             class="rounded-md bg-red-600 px-4 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-red-700 cursor-pointer">
           Remove
+        </button>
+        <!-- TODO change to "Owned" if it is in the user's inv. -->
+        <button
+            v-if="context === 'browse' && isAuthenticated"
+            @click="emit('add-to-inventory', set.sid)"
+            class="rounded-md bg-green-700 px-4 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-green-800 cursor-pointer">
+          Add to Inventory
         </button>
       </div>
     </div>

@@ -2,9 +2,11 @@
 import { onMounted, ref } from 'vue';
 import apiClient from '@/api.js'
 import SetList from "@/components/SetList.vue";
+import { useAuthStore } from "@/stores/authStore.js";
 
 const sets = ref([]);
 const isLoading = ref(true);
+const authStore = useAuthStore();
 
 const fetchInventory = async () => {
   try {
@@ -38,8 +40,14 @@ onMounted(fetchInventory);
 
     <!-- TODO display owned brands with set filtering -->
     <!-- TODO implement backend endpoint for filtering sets -->
+    <!-- TODO when inv. empty wrong msg is displayed. "No sets found for this brand." -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-      <SetList :sets="sets" :is-loading="isLoading" context="inventory" @remove-set="handleRemoveSet"/>
+      <SetList
+          :sets="sets"
+          :is-loading="isLoading"
+          context="inventory"
+          :is-authenticated="authStore.isAuthenticated"
+          @remove-set="handleRemoveSet"/>
     </div>
   </div>
 </template>

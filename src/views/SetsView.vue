@@ -5,11 +5,13 @@ import { ref, watchEffect } from 'vue';
 import { placeholderBrands, placeholderSets } from '@/placeholder-data.js';
 import apiClient from '@/api.js'
 import { lastSetsPath } from "@/navigationStore.js";
+import { useAuthStore } from "@/stores/authStore.js";
 
 const sets = ref([]);
 const brands = ref([]);
 const isLoading = ref(true);
 const route = useRoute();
+const authStore = useAuthStore();
 
 watchEffect(async () => {
   lastSetsPath.value = route.fullPath;
@@ -44,6 +46,16 @@ watchEffect(async () => {
     isLoading.value = false;
   }
 });
+
+const handleAddSetToInventory = async (setId) => {
+  try {
+    await apiClient.post(`/api/me/sets`, { brickSetId: setId }, { requiresAuth: true });
+    alert(`Set added to your inventory!`);
+  } catch (error) {
+    console.error('Failed to add set:', error);
+    alert('Could not add set to inventory. Please try again.');
+  }
+};
 </script>
 
 <template>
@@ -68,7 +80,11 @@ watchEffect(async () => {
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-      <SetList :sets="sets" :is-loading="isLoading" />
+      <SetList
+          :sets="sets"
+          :is-loading="isLoading"
+          :is-authenticated="authStore.isAuthenticated"
+          @add-to-inventory="handleAddSetToInventory"/>
     </div>
 
   </div>

@@ -12,6 +12,8 @@ This is the Vue 3 frontend for my BricksetTracker project. It connects to the [B
 _(Please note: The backend API is hosted on a free-tier service and may take 15-30 seconds to "wake up" on the first visit.)_
 
 ## Features
+* **Full User Authentication:** Secure user registration and login using JWT. The application state is managed globally with Pinia.
+* **Personal Inventory Management:** Authenticated users can view their personal collection, add new sets from the main catalog, and remove sets from their inventory.
 * **Dynamic Set Catalog:** Fetches and displays brick sets from the backend API.
 * **Interactive Filtering:** Users can filter the set catalog by brand in real-time. The UI reactively updates based on URL query parameters.
 * **Robust Data Fetching & Error Handling:** Uses `axios` for API calls, includes loading states, and gracefully falls back to placeholder data if the API is unavailable.
@@ -33,9 +35,30 @@ _(Please note: The backend API is hosted on a free-tier service and may take 15-
 <details>
 <summary>Click to view screenshots</summary>
 
-![Brickset Tracker Homepage](./public/screenshot.png)
-![Brickset Tracker Explore Sets Page](./public/screenshot_2.png)
-![Brickset Tracker Set Details Page](./public/screenshot_3.png)
+<div align="center">
+  <p><strong>Homepage (Guest View)</strong></p>
+  <img src="./public/screenshot.png" width="80%">
+</div>
+
+<div align="center">
+  <p><strong>Homepage (Authenticated View)</strong></p>
+  <img src="./public/screenshot_4.png" width="80%">
+</div>
+
+<div align="center">
+  <p><strong>Explore Sets Page</strong></p>
+  <img src="./public/screenshot_2.png" width="80%">
+</div>
+
+<div align="center">
+  <p><strong>Set Details Page</strong></p>
+  <img src="./public/screenshot_3.png" width="80%">
+</div>
+
+<div align="center">
+  <p><strong>User Inventory Page</strong></p>
+  <img src="./public/screenshot_5.png" width="80%">
+</div>
 
 </details>
 
@@ -44,8 +67,8 @@ _(Please note: The backend API is hosted on a free-tier service and may take 15-
 - [x] **Explore Sets Page:** Display all sets from the API in a responsive grid with brand filtering.
 - [x] **Set Detail Page:** Display detailed information about a set.
 - [x] **Explore Brands Page:** Display all brands from the API in a responsive grid.
-- [ ] **User Authentication:** Secure registration and login functionality.
-- [ ] **User Inventory Management:** Allow logged-in users to add or remove sets from their personal collection.
+- [x] **User Authentication:** Implement JWT-based registration and login..
+- [x] **User Inventory Management:** Allow users to view, add and remove sets from their personal collection.
 - [ ] **Admin Panels:** (Future) Provide UI for users with `EDITOR` or `ADMIN` roles to manage Sets, Brands, Tags and Comments.
 
 ## Project Setup

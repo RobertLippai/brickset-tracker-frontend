@@ -16,10 +16,14 @@ defineProps({
   context: {
     type: String,
     default: 'browse'
+  },
+  isAuthenticated: {
+    type: Boolean,
+    default: false
   }
 });
 
-const emit = defineEmits(['remove-set']);
+const emit = defineEmits(['remove-set', 'add-to-inventory']);
 </script>
 
 <template>
@@ -40,5 +44,7 @@ const emit = defineEmits(['remove-set']);
         :key="set.sid"
         :set="set"
         :context="context"
-        @remove-set="(setId) => emit('remove-set', setId)" />
+        :is-authenticated="isAuthenticated"
+        @remove-set="(setId) => emit('remove-set', setId)"
+        @add-to-inventory="(setId) => emit('add-to-inventory', setId)"/>
 </template>
