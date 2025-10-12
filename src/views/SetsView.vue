@@ -1,7 +1,7 @@
 <script setup>
 import SetList from '@/components/SetList.vue';
 import { useRoute, RouterLink } from 'vue-router';
-import { ref, watchEffect } from 'vue';
+import { computed, ref, watchEffect} from 'vue';
 import { placeholderBrands, placeholderSets } from '@/placeholder-data.js';
 import apiClient from '@/api.js'
 import { lastSetsPath } from "@/navigationStore.js";
@@ -57,6 +57,16 @@ const handleAddSetToInventory = async (setId) => {
     alert('Could not add set to inventory. Please try again.');
   }
 };
+
+// Error message when there are no sets to be display
+const computedEmptyMessage = computed(() => {
+  // If a brand filter is active
+  if (route.query.brand) {
+    return `No sets found for this brand.`;
+  }
+  // If there's no filter, db is empty
+  return 'There are currently no sets to display.';
+});
 </script>
 
 <template>
@@ -86,8 +96,7 @@ const handleAddSetToInventory = async (setId) => {
           :is-loading="isLoading"
           :is-authenticated="authStore.isAuthenticated"
           @add-to-inventory="handleAddSetToInventory"
-          empty-array-message="No sets found for this brand."/>
-          <!-- TODO make the error msg a computed property -->
+          :empty-array-message="computedEmptyMessage"/>
     </div>
 
   </div>

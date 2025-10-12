@@ -40,7 +40,6 @@ onMounted(fetchInventory);
 
     <!-- TODO display owned brands with set filtering -->
     <!-- TODO implement backend endpoint for filtering sets -->
-    <!-- TODO when inv. empty wrong msg is displayed. "No sets found for this brand." -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
       <SetList
           :sets="sets"
