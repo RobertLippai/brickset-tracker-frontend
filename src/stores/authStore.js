@@ -6,6 +6,7 @@ export const useAuthStore = defineStore('authStore', {
     state: () => ({
         user: JSON.parse(localStorage.getItem('user')) || null,
         token: localStorage.getItem('token') || null,
+        inventory: []
     }),
 
     getters: {
@@ -21,10 +22,28 @@ export const useAuthStore = defineStore('authStore', {
         },
         roles() {
             return this.user?.roles || [];
+        },
+        inventoryIds(){
+            return this.inventory.map(set => set.sid);
         }
     },
 
     actions: {
+        async fetchInventory() {
+            if (!this.isAuthenticated) {
+                this.inventory = [];
+                return;
+            }
+            try {
+                const response = await axios.get('/api/me/sets', { headers: {
+                    "Authorization" : `Bearer ${this.token}`
+                    }});
+                this.inventory = response.data;
+            } catch (error) {
+                console.error('Failed to fetch user inventory:', error);
+                this.inventory = [];
+            }
+        },
         async login(username, password) {
             try {
                 const response = await axios.post('/api/auth/login', { username, password} );
@@ -38,6 +57,8 @@ export const useAuthStore = defineStore('authStore', {
 
                 localStorage.setItem('token', token);
                 localStorage.setItem('user', JSON.stringify(userData));
+
+                await this.fetchInventory();
             } catch (error) {
                 console.error('Login failed:', error);
                 throw error;
@@ -47,6 +68,7 @@ export const useAuthStore = defineStore('authStore', {
         logout() {
             this.token = null;
             this.user = null;
+            this.inventory = [];
 
             localStorage.removeItem('token');
             localStorage.removeItem('user');
