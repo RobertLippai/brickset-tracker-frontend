@@ -1,7 +1,7 @@
 <script setup>
 import SetList from '@/components/SetList.vue';
 import { useRoute, RouterLink } from 'vue-router';
-import { computed, ref, watchEffect} from 'vue';
+import { computed, onMounted, ref, watchEffect } from 'vue';
 import { placeholderBrands, placeholderSets } from '@/placeholder-data.js';
 import apiClient from '@/api.js'
 import { lastSetsPath } from "@/navigationStore.js";
@@ -12,6 +12,12 @@ const brands = ref([]);
 const isLoading = ref(true);
 const route = useRoute();
 const authStore = useAuthStore();
+
+onMounted(() => {
+  if (authStore.isAuthenticated) {
+    authStore.fetchInventory();
+  }
+});
 
 watchEffect(async () => {
   lastSetsPath.value = route.fullPath;
@@ -51,6 +57,7 @@ const handleAddSetToInventory = async (setId) => {
   try {
     await apiClient.post(`/api/me/sets`, { brickSetId: setId }, { requiresAuth: true });
     // TODO change alerts to pop up notification
+    await authStore.fetchInventory();
     alert(`Set added to your inventory!`);
   } catch (error) {
     console.error('Failed to add set:', error);
@@ -95,6 +102,7 @@ const computedEmptyMessage = computed(() => {
           :sets="sets"
           :is-loading="isLoading"
           :is-authenticated="authStore.isAuthenticated"
+          :inventory-set-ids="authStore.inventoryIds"
           @add-to-inventory="handleAddSetToInventory"
           :empty-array-message="computedEmptyMessage"/>
     </div>

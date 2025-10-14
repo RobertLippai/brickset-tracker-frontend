@@ -3,7 +3,7 @@ import SetCard from '@/components/SetCard.vue';
 import { VueSpinnerSync } from 'vue3-spinners'
 import { defineProps } from 'vue';
 
-defineProps({
+const props = defineProps({
   limit: Number,
   sets: {
     type: Array,
@@ -24,10 +24,18 @@ defineProps({
   isAuthenticated: {
     type: Boolean,
     default: false
+  },
+  inventorySetIds: {
+    type: Array,
+    default: []
   }
 });
 
 const emit = defineEmits(['remove-set', 'add-to-inventory']);
+
+const isSetInInventory = (setSid) => {
+  return props.inventorySetIds.includes(setSid);
+};
 </script>
 
 <template>
@@ -49,6 +57,7 @@ const emit = defineEmits(['remove-set', 'add-to-inventory']);
         :set="set"
         :context="context"
         :is-authenticated="isAuthenticated"
+        :is-in-inventory="isSetInInventory(set.sid)"
         @remove-set="(setId) => emit('remove-set', setId)"
         @add-to-inventory="(setId) => emit('add-to-inventory', setId)"/>
 </template>

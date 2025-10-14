@@ -11,6 +11,10 @@ defineProps({
   isAuthenticated: {
     type: Boolean,
     default: false
+  },
+  isInInventory: {
+    type: Boolean,
+    default: false
   }
 });
 
@@ -49,12 +53,13 @@ const emit = defineEmits(['remove-set', 'add-to-inventory']);
             class="rounded-md bg-red-600 px-4 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-red-700 cursor-pointer">
           Remove
         </button>
-        <!-- TODO change to "Owned" if it is in the user's inv. -->
         <button
             v-if="context === 'browse' && isAuthenticated"
+            :disabled="isInInventory"
             @click="emit('add-to-inventory', set.sid)"
-            class="rounded-md bg-green-700 px-4 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-green-800 cursor-pointer">
-          Add to Inventory
+            class="rounded-md px-4 py-2 text-sm font-bold text-white shadow-sm transition"
+            :class="isInInventory ? 'bg-gray-500 cursor-not-allowed' : 'bg-green-700 hover:bg-green-800 cursor-pointer'">
+          {{ isInInventory ? '✓ Owned' : 'Add to Inventory' }}
         </button>
       </div>
     </div>
